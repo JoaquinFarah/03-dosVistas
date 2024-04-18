@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
 import CustomFilter from "@/components/CustomFilter";
 import SearchManufacturer from "@/components/SearchManufacturer";
+import CardCard from "@/components/CardCard";
 
 export {
     Hero,
@@ -14,4 +15,5 @@ export {
     SearchBar,
     CustomFilter,
     SearchManufacturer,
+    CardCard,
 }
