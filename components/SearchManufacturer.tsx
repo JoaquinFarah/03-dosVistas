@@ -17,7 +17,6 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
         .includes(query.toLowerCase().replace(/\s+/g, "")
     )))
 
-
   return (
     <div className="search-manufacturer">
         <Combobox>
@@ -25,10 +24,10 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
                 <Combobox.Button className="absolute top-[14px]">
                     <Image
                         src="/car-logo.svg"
-                        alt="car logo"
                         width={20}
                         height={20}
-                        className="ml-14" />
+                        className="ml-14"
+                        alt="car logo" />
                 </Combobox.Button>
                 
                 <Combobox.Input 
@@ -46,30 +45,16 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
                     afterLeave={() => setQuery('')}
                 >
                     <Combobox.Options>
-                        {filteredManufacturers.length === 0 && query !== "" && (
+                        {filteredManufacturers.map((item) => (
                             <Combobox.Option
-                                value={query}
-                                className="search-manufacturer__option"
-                            >
-                                Create "{query}"
+                               key={item}
+                               className={({active}) => `relative search-manufacturer__option ${active? 'bg-primary-blue text-white' : 'text-gray-900'}`}
+                               value={item}
+                               >
                             </Combobox.Option>
-                        ): {
-                            filteredManufacturers.map((item) => (
-                                <Combobox.Option
-                                key={item}
-                                className={({active}) => 
-                                    `relative cursor-default select-none py-2 px-4 ${
-                                    active ? "bg-primary-blue text-white" : "text-gray-900"
-                                    }`
-                                }>
-                                </Combobox.Option>
-
-                        )
-                        }
-                        }
-
+                            ))
+                        };                        
                     </Combobox.Options>
-
                 </Transition>
             </div>
         </Combobox>
