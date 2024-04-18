@@ -36,7 +36,7 @@ const CardCard = ({ car }: CarCardProps) => {
         </span>
       </p>
       <div className="relative w-full h-40 my-3 object-contain">
-        <Image src={generateCarImageURL(car, '29')} alt="car model" fill priority className="object-contain" />
+        <Image src={generateCarImageURL(car, '1')} alt="car model" fill priority className="object-contain" />
       </div>
       <div className="relative flex w-full mt-2">
         <div className="flex group-hover:invisible w-full justify-between text-gray">
