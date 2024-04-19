@@ -1,12 +1,18 @@
 import Image from "next/image";
 import { Hero, SearchBar, CustomFilter, CardCard } from "@/components";
-import { global } from "styled-jsx/css";
+
 import { fetchCars } from "@/utils";
 
-export default async function Home() {
-  const allCars = await fetchCars();
+export default async function Home({searchParams}) {
+  const allCars = await fetchCars({
+    manufacturer: searchParams.manufacturer || '',
+    year: searchParams.year || '' ,
+    fuel: searchParams.fuel || '',
+    limit: searchParams.limit || '' ,
+    model: searchParams.model || '',
+  });
   
-  const isDataEmpty = !Array.isArray(allCars) || allCars.length <1 || !allCars[0];
+  const isDataEmpty = !Array.isArray(allCars) || allCars.length <1 || !allCars;
 
   return (
     <main className="overflow-hidden">
